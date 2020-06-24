@@ -7,7 +7,7 @@
 		<div class='page_crud__list'>
 			<div v-for="item in list" :key="item.id" class="page_crud__list_item"
 				v-bind:class="{ active: item.id == active_id }"
-				v-on:click="select(item.id)"
+				v-on:click="onSelect(item.id)"
 			>
 				{{ item.name }}
 			</div>
@@ -97,7 +97,7 @@ export default
 	},
 	methods:
 	{
-		select: function (id)
+		onSelect: function (id)
 		{
 			this.storeCommit("select", id);
 		},
