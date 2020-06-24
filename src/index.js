@@ -8,6 +8,7 @@ import router from './router.js'
 Vue.config.productionTip = false
 Vue.use(Vuex);
 Vue.use(VueRouter);
+Vue.use(store);
 
 var params = {
 	render: h => h(Layout),

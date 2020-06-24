@@ -70,11 +70,12 @@ export default
 {
 	name: 'Crud',
 	buildStore: store,
+	props: ['store_path'],
 	computed:
 	{
 		model()
 		{
-			return this.$store.state.page.crud;
+			return this.getModel();
 		},
 		active_id ()
 		{
@@ -94,12 +95,12 @@ export default
 	{
 		select: function (id)
 		{
-			this.$store.commit("page/crud/select", id);
+			this.storeCommit("select", id);
 		},
 		
 		onChange: function (name, e)
 		{
-			this.$store.commit("page/crud/change", {"field": "name", "value": e.target.value});
+			this.storeCommit("change", {"field": "name", "value": e.target.value});
 		},
 	},
 	components:

@@ -13,12 +13,13 @@ export default function(params)
 		[
 			{
 				path: '/',
-				component: Home
+				component: Home,
+				props: { default: true, store_path: ["page", "home"] }
 			},
 			{
 				path: '/crud',
 				component: Crud,
-				name: 'crud',
+				props: { default: true, store_path: ["page", "crud"] }
 			},
 		],
 	});

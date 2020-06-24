@@ -28,11 +28,12 @@ export default
 {
 	name: 'Home',
 	buildStore: store,
+	props: ['store_path'],
 	computed:
 	{
 		model()
 		{
-			return this.$store.state.page.home;
+			return this.getModel();
 		},
 	},
 	components:
