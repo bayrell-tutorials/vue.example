@@ -17,6 +17,10 @@ var store = () => (
 		"name": "Username",
 	}),
 	
+	modules:
+	{
+	},
+	
 	mutations:
 	{
 		

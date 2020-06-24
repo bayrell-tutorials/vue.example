@@ -49,6 +49,10 @@ var store = () => (
 		],
 	}),
 	
+	modules:
+	{
+	},
+	
 	mutations:
 	{
 		
