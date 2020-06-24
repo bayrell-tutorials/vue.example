@@ -11,7 +11,6 @@ html, body{
 
 
 /* layout */
-
 .layout{
 	&_menu{}
 	&_content{
@@ -27,29 +26,5 @@ html, body{
 	&__list, &__form{
 		width: 50%;
 		padding: 0px 10px;
-	}
-	&__form_row{
-		label{
-			font-weight: bold;
-			display: block;
-			text-align: left;
-			padding-bottom: 5px;
-		}
-		input{
-			width: 100%;
-			padding: 6px 12px;
-		}
-	}
-	&__list{
-		&_item{
-			display: block;
-			text-align: left;
-			cursor: pointer;
-			padding: 10px;
-		}
-		&_item.active{
-			background-color: blue;
-			color: white;
-		}
 	}
 }
