@@ -2,19 +2,19 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router';
 import Layout from './pages/Layout.vue'
-import store from './store.js'
-import router from './router.js'
+import Router from './router.js'
+import Store from './store.js'
 
 Vue.config.productionTip = false
 Vue.use(Vuex);
 Vue.use(VueRouter);
-Vue.use(store);
+Vue.use(Store);
 
 var params = {
 	render: h => h(Layout),
 };
-params = store(params);
-params = router(params);
+params = Store(params);
+params = Router(params);
 
 var app = new Vue(params).$mount('#app');
 
