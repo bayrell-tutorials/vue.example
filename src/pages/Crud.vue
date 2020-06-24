@@ -70,7 +70,7 @@ export default
 {
 	name: 'Crud',
 	buildStore: store,
-	props: ['store_path'],
+	props: ['namespace'],
 	computed:
 	{
 		model()

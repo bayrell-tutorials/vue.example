@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getById, findIndex } from './lib.js'
 
 
 var store = function(params)
@@ -25,19 +24,19 @@ store.install = function (Vue, options)
 {
 	Vue.prototype.storeCommit = function (action, params)
 	{
-		var arr = this.store_path.concat( action.split("/") );
+		var arr = this.namespace.concat( action.split("/") );
 		this.$store.commit(arr.join("/"), params);
 	};
 	
 	Vue.prototype.storeDispatch = function (action, params)
 	{
-		var arr = this.store_path.concat( action.split("/") );
+		var arr = this.namespace.concat( action.split("/") );
 		this.$store.dispatch(arr.join("/"), params);
 	};
 	
 	Vue.prototype.getModel = function ()
 	{
-		var arr = this.store_path.slice();
+		var arr = this.namespace.slice();
 		var obj = this.$store.state;
 		
 		while (arr.length != 0)

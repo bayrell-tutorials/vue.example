@@ -14,12 +14,12 @@ export default function(params)
 			{
 				path: '/',
 				component: Home,
-				props: { default: true, store_path: ["page", "home"] }
+				props: { default: true, namespace: ["page", "home"] }
 			},
 			{
 				path: '/crud',
 				component: Crud,
-				props: { default: true, store_path: ["page", "crud"] }
+				props: { default: true, namespace: ["page", "crud"] }
 			},
 		],
 	});
