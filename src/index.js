@@ -15,6 +15,7 @@ var params = {
 };
 params = Store(params);
 params = Router(params);
+params = Store.init(params);
 
 var app = new Vue(params).$mount('#app');
 

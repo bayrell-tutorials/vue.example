@@ -1,38 +1,46 @@
 <style>
 </style>
 
+
 <template>
 	<div class="page_home">
 		Wellcome {{ model.name }}!
 	</div>
 </template>
 
+
 <script>
 
-var store = () => (
-{
-	namespaced: true,
-	
-	state: () => ({
-		"name": "Username",
-	}),
-	
-	modules:
-	{
-	},
-	
-	mutations:
-	{
-		
-	},
-});
+import { List, Map } from 'immutable'
 
 
 export default
 {
-	name: 'Home',
-	buildStore: store,
 	props: ['namespace'],
+	buildStore: (state) =>
+	{
+		if (state == null || state == undefined)
+		{
+			state =
+			{
+				"name": "Username",
+			};
+		}
+		
+		var res =
+		{
+			namespaced: true,
+			state: () => { return state; },
+			modules:
+			{
+			},
+			mutations:
+			{
+			},
+		}
+		
+		return res;
+	},
 	computed:
 	{
 		model()
