@@ -11,7 +11,7 @@ export default defineComponent({
 		onSelect: function (id)
 		{
 			this.storeCommit("select", id);
-			//this.$emit("select", id);
+			this.$emit("select", id);
 		},
 	}
 });

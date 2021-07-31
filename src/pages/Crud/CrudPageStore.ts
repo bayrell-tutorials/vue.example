@@ -7,7 +7,8 @@ export interface CrudPageState
 {
 }
 
-export const CrudPageStore = createStore<CrudPageState>({
+export const CrudPageStore = () => ({
+	namespaced: true,
 	state:
 	{
 	},
@@ -32,7 +33,7 @@ export const CrudPageStore = createStore<CrudPageState>({
 	},
 	modules:
 	{
-		"List": ListStore,
-		"FormEdit": FormStore,
+		"List": ListStore(),
+		"FormEdit": FormStore(),
 	}
 })

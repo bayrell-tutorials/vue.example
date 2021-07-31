@@ -6,7 +6,9 @@ export interface ListState
 	active_id: number;
 }
 
-export const ListStore = createStore<ListState>({
+export const ListStore = () =>
+({
+	namespaced: true,
 	state:
 	{
 		items: new Array<{}>(),

@@ -5,14 +5,19 @@ export interface HomePageState
 	name: string;
 }
 
-export const HomePageStore = createStore<HomePageState>({
-	state: {
+export const HomePageStore = () => ({
+	namespaced: true,
+	state:
+	{
 		name: ""
 	},
-	mutations: {
+	mutations:
+	{
 	},
-	actions: {
+	actions:
+	{
 	},
-	modules: {
+	modules:
+	{
 	}
 })

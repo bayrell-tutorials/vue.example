@@ -14,7 +14,7 @@ export default createStore({
 	actions: {
 	},
 	modules: {
-		"HomePage": HomePageStore,
-		"CrudPage": CrudPageStore
+		"HomePage": HomePageStore(),
+		"CrudPage": CrudPageStore(),
 	}
 })

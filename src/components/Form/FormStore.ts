@@ -5,7 +5,9 @@ export interface FormState
 	item: Record<string, any>
 }
 
-export const FormStore = createStore<FormState>({
+export const FormStore = () =>
+({
+	namespaced: true,
 	state:
 	{
 		item: {},
@@ -15,7 +17,7 @@ export const FormStore = createStore<FormState>({
 		/**
 		 * Change item
 		 */
-		change (state: FormState, obj)
+		change (state: FormState, obj: Record<string, any>)
 		{
 			let field = obj.field;
 			let value = obj.value;
