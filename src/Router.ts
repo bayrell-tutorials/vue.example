@@ -7,13 +7,13 @@ const routes: Array<RouteRecordRaw> = [
 		path: '/',
 		name: 'HomePage',
 		component: HomePage,
-		props: { namespace: ["HomePage"] }
+		props: { store_path: ["HomePage"] }
 	},
 	{
 		path: '/crud/',
 		name: 'CrudPage',
 		component: CrudPage,
-		props: { namespace: ["CrudPage"] }
+		props: { store_path: ["CrudPage"] }
 	},
 ]
 

@@ -1,3 +1,5 @@
+import { createStore, Store } from "vuex";
+
 export function getById(list: Array<Record<string, any>>, id: number)
 {
 	for (let i=0; i<list.length; i++)
@@ -23,7 +25,7 @@ export function findIndex(list: Array<Record<string, any>>, id: number)
  */
 export const getModel = (instance: any) =>
 {
-	let arr = instance.namespace.slice();
+	let arr = instance.store_path.slice();
 	let obj = instance.$store.state;
 	
 	while (arr.length != 0)
@@ -62,15 +64,14 @@ export function getMutations (proto: any): Record<string, any>
 /**
  * Build store from class state prototype
  */
-export function buildStore (proto: any): Record<string, any>
+export function buildStoreConfig (proto: any): Record<string, any>
 {
 	/* Create store */
 	let res: Record<string, any> =
 	{
 		namespaced: true,
-		modules:
-		{
-		}
+		state: {},
+		modules: {}
 	};
 
 	/* Build modules */
@@ -80,7 +81,7 @@ export function buildStore (proto: any): Record<string, any>
 	{
 		let module_name:string = modules_keys[i];
 		let module:any = modules[module_name];
-		res["modules"][modules_keys[i]] = buildStore(module);
+		res["modules"][modules_keys[i]] = buildStoreConfig(module);
 	}
 
 	/* Get mutations  */
@@ -93,13 +94,35 @@ export function buildStore (proto: any): Record<string, any>
 
 
 /**
+ * Build store
+ */
+export function buildStore(proto: any)
+{
+	let config:Record<string, any> = buildStoreConfig(proto);
+	let obj = new proto();
+	let keys = Object.keys(obj);
+	let store: Record<string, any> = createStore( config )
+	
+	/* Init store */
+	for (let i=0; i<keys.length; i++)
+	{
+		let key: string = keys[i];
+		store.state[key] = obj[key];
+	}
+
+	return store;
+}
+
+
+
+/**
  * VueJS Mixin
  */
 export const mixin =
 {
 	props:
 	{
-		namespace: Array
+		store_path: Array
 	},
 	computed:
 	{
@@ -117,7 +140,7 @@ export const mixin =
 		$commit (action: string, params: any)
 		{
 			let obj: any = this;
-			var arr = obj.namespace.concat( action.split("/") );
+			var arr = obj.store_path.concat( action.split("/") );
 			obj.$store.commit(arr.join("/"), params);
 		},
 	}

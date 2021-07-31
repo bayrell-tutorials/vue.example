@@ -5,12 +5,12 @@
 <template>
 	<div class="page_crud">
 		<div class='page_crud__list'>
-			<List v-bind:namespace="namespace.concat('List')"
+			<List v-bind:store_path="store_path.concat('List')"
 				v-on:select="onSelect"
 			></List>
 		</div>
 		<div class='page_crud__form'>
-			<Form v-bind:namespace="namespace.concat('FormEdit')"
+			<Form v-bind:store_path="store_path.concat('FormEdit')"
 				v-if="model.List.active_id != 0"
 				v-on:save="onSave"
 			></Form>
