@@ -1,6 +1,7 @@
 # Frontend
 var/*
 html/dist/*
+tmp/*
 
 # Logs
 logs

@@ -1,7 +1,7 @@
 import "./main.scss";
 
 import { createApp } from 'vue'
-import { buildStore } from '@/lib';
+import { buildStore } from 'vue-helper'
 import App from './App.vue'
 import Router from './Router'
 import { AppState } from './AppState'

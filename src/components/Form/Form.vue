@@ -43,7 +43,7 @@
 <script lang='js'>
 
 import { defineComponent } from 'vue';
-import { mixin } from "@/lib";
+import { mixin } from "vue-helper";
 
 export default defineComponent({
 	mixins: [ mixin ],
