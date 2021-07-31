@@ -1,23 +1,18 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import VueRouter from 'vue-router';
-import Layout from './pages/Layout.vue'
-import Router from './router.js'
-import Store from './store.js'
+import "./main.scss";
 
-Vue.config.productionTip = false
-Vue.use(Vuex);
-Vue.use(VueRouter);
-Vue.use(Store);
+import { createApp } from 'vue'
+import App from './App.vue'
+import Router from './Router'
+import Store from './Store'
+import { createTestStore } from './StoreTest'
 
-var params = {
-	render: h => h(Layout),
-};
-params = Store(params);
-params = Router(params);
-params = Store.init(params);
-
-var app = new Vue(params).$mount('#app');
+var app = createApp(App)
+	.use(Store)
+	.use(Router)
+	.mount('#app')
 
 window["appInstance"] = app;
-window["storeInstance"] = params["store"];
+window["storeInstance"] = Store;
+
+/* Create test store */
+createTestStore(Store)

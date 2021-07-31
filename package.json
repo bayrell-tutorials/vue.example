@@ -1,28 +1,53 @@
 {
-  "name": "hello-world",
-  "version": "0.1.0",
-  "scripts": {
-    "build": "parcel build src/index.html --public-url / --out-dir ./web --cache-dir ./var/parcel",
-    "watch": "parcel watch src/index.html --public-url / --out-dir ./web --cache-dir ./var/parcel"
-  },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "immutable": "^4.0.0-rc.12",
-    "vue": "^2.6.11",
-    "vue-hot-reload-api": "^2.3.4",
-    "vue-router": "^3.3.4",
-    "vuex": "^3.4.0"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
-    "@vue/component-compiler-utils": "^3.1.2",
-    "babel-eslint": "^10.1.0",
-    "cssnano": "^4.1.10",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "sass": "^1.26.9",
-    "vue-template-compiler": "^2.6.11"
-  }
+	"name": "hello_world",
+	"version": "0.0.1",
+	"description": "Example Vue.js Project",
+	"scripts": {
+		"build": "webpack --mode development",
+		"build:prod": "webpack",
+		"watch": "webpack --watch --progress --mode development"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.14.8",
+		"@babel/preset-env": "^7.14.8",
+		"@types/jest": "^24.0.19",
+		"@typescript-eslint/eslint-plugin": "^4.18.0",
+		"@typescript-eslint/parser": "^4.18.0",
+		"@vue/cli-plugin-babel": "~4.5.0",
+		"@vue/cli-plugin-eslint": "~4.5.0",
+		"@vue/cli-plugin-router": "~4.5.0",
+		"@vue/cli-plugin-typescript": "~4.5.0",
+		"@vue/cli-plugin-unit-jest": "~4.5.0",
+		"@vue/cli-plugin-vuex": "~4.5.0",
+		"@vue/cli-service": "~4.5.0",
+		"@vue/compiler-sfc": "^3.0.0",
+		"@vue/component-compiler-utils": "^3.2.2",
+		"@vue/eslint-config-typescript": "^7.0.0",
+		"@vue/test-utils": "^2.0.0-0",
+		"babel-loader": "^8.2.2",
+		"css-loader": "^6.2.0",
+		"cssnano": "^5.0.7",
+		"eslint": "^6.7.2",
+		"eslint-plugin-vue": "^7.0.0",
+		"jest": "^27.0.6",
+		"node-sass": "^6.0.1",
+		"sass": "^1.36.0",
+		"sass-loader": "^12.1.0",
+		"style-loader": "^3.2.1",
+		"ts-loader": "^9.2.4",
+		"typescript": "^4.3.5",
+		"vue": "^3.1.5",
+		"vue-jest": "^5.0.0-0",
+		"vue-loader": "^16.4.0",
+		"vue-template-compiler": "^2.6.14",
+		"webpack": "^5.47.1",
+		"webpack-cli": "^4.7.2"
+	},
+	"dependencies": {
+		"core-js": "^3.6.5",
+		"immutable": "^4.0.0-rc.14",
+		"vue-class-component": "^8.0.0-0",
+		"vue-router": "^4.0.0-0",
+		"vuex": "^4.0.0-0"
+	}
 }
