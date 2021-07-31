@@ -3,7 +3,7 @@ import "./main.scss";
 import { createApp } from 'vue'
 import App from './App.vue'
 import Router from './Router'
-import Store from './Store'
+import Store, { initStore } from './Store'
 import { createTestStore } from './StoreTest'
 
 var app = createApp(App)
@@ -13,6 +13,9 @@ var app = createApp(App)
 
 window["appInstance"] = app;
 window["storeInstance"] = Store;
+
+/* Init store */
+initStore(Store)
 
 /* Create test store */
 createTestStore(Store)
