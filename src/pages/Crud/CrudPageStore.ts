@@ -5,6 +5,8 @@ import { getById, findIndex } from "@/lib";
 
 export interface CrudPageState
 {
+	List: ListState,
+	FormEdit: FormState,
 }
 
 export const CrudPageStore = () => ({
