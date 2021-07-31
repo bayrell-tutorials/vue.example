@@ -1,20 +1,16 @@
-import { createStore, Store } from 'vuex'
-import { HomePageStore } from './pages/Home/HomePageStore'
-import { CrudPageStore } from './pages/Crud/CrudPageStore'
+import { createStore } from 'vuex'
+import { buildStore } from '@/lib';
+import { HomePageState } from './pages/Home/HomePageState'
+import { CrudPageState } from './pages/Crud/CrudPageState'
 
 
 /**
  * Create store
  */
 export default createStore({
-	state: {
-	},
-	mutations: {
-	},
-	actions: {
-	},
-	modules: {
-		"HomePage": HomePageStore(),
-		"CrudPage": CrudPageStore(),
+	modules:
+	{
+		"HomePage": buildStore(HomePageState),
+		"CrudPage": buildStore(CrudPageState),
 	}
 })

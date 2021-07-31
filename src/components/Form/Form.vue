@@ -39,4 +39,29 @@
 	</div>
 </template>
 
-<script src='./FormComponent.js' lang='js'></script>
+
+<script lang='js'>
+
+import { defineComponent } from 'vue';
+import { mixin } from "@/lib";
+
+export default defineComponent({
+	mixins: [ mixin ],
+	computed:
+	{
+	},
+	methods:
+	{
+		onChange: function (name, e)
+		{
+			this.$commit("change", {"field": "name", "value": e.target.value});
+			this.$emit("change", {"field": "name", "value": e.target.value});
+		},
+		onSave: function ()
+		{
+			this.$emit("save");
+		},
+	}
+});
+
+</script>

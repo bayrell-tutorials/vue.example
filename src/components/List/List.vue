@@ -25,4 +25,25 @@
 	</div>
 </template>
 
-<script src='./ListComponent.js' lang='js'></script>
+
+<script lang='js'>
+
+import { defineComponent } from 'vue';
+import { mixin } from "@/lib";
+
+export default defineComponent({
+	mixins: [ mixin ],
+	computed:
+	{
+	},
+	methods:
+	{
+		onSelect: function (id)
+		{
+			this.$commit("select", id);
+			this.$emit("select", id);
+		},
+	}
+});
+
+</script>

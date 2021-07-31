@@ -16,6 +16,11 @@ export function findIndex(list: Array<Record<string, any>>, id: number)
 	return -1;
 }
 
+
+
+/**
+ * Returns VueJS model
+ */
 export const getModel = (instance: any) =>
 {
 	let arr = instance.namespace.slice();
@@ -35,6 +40,61 @@ export const getModel = (instance: any) =>
 	return obj;
 };
 
+
+
+/**
+ * Returns mutations list from class state prototype
+ */
+export function getMutations (proto: any): Record<string, any>
+{
+	let res: Record<string, any> = {};
+	let items:Array<string> = proto.mutations();
+	for (let i = 0; i < items.length; i++)
+	{
+		let method_name = items[i];
+		res[method_name] = proto[method_name];
+	}
+	return res;
+}
+
+
+
+/**
+ * Build store from class state prototype
+ */
+export function buildStore (proto: any): Record<string, any>
+{
+	/* Create store */
+	let res: Record<string, any> =
+	{
+		namespaced: true,
+		modules:
+		{
+		}
+	};
+
+	/* Build modules */
+	let modules:Record<string, any> = proto.modules();
+	let modules_keys:Array<string> = Object.keys(modules);
+	for (let i=0; i<modules_keys.length; i++)
+	{
+		let module_name:string = modules_keys[i];
+		let module:any = modules[module_name];
+		res["modules"][modules_keys[i]] = buildStore(module);
+	}
+
+	/* Get mutations  */
+	res["mutations"] = getMutations(proto);
+	
+	/* Returns store */
+	return res;
+}
+
+
+
+/**
+ * VueJS Mixin
+ */
 export const mixin =
 {
 	props:
@@ -54,17 +114,11 @@ export const mixin =
 		{
 			return getModel(this);
 		},
-		storeCommit (action: string, params: any)
+		$commit (action: string, params: any)
 		{
 			let obj: any = this;
 			var arr = obj.namespace.concat( action.split("/") );
 			obj.$store.commit(arr.join("/"), params);
-		},
-		storeDispatch (action: string, params: any)
-		{
-			let obj: any = this;
-			let arr = obj.namespace.concat( action.split("/") );
-			obj.$store.dispatch(arr.join("/"), params);
 		},
 	}
 };
