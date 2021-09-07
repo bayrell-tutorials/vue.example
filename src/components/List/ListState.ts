@@ -7,33 +7,9 @@ export class ListState
 	/**
 	 * Select item
 	 */
-	static select (state: ListState, id: number)
+	select (id: number)
 	{
-		state.active_id = id;
+		this.active_id = id;
 	};
-
-
-	/**
-	 * Returns methods list
-	 */
-	static mutations(): Array<string>
-	{
-		let res: Array<string> =
-		[
-			"select",
-		];
-		return res;
-	}
-
-
-	/**
-	 * Returns modules
-	 */
-	static modules(): Record<string, any>
-	{
-		let res: Record<string, any> =
-		{
-		};
-		return res;
-	}
+	
 }

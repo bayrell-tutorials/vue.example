@@ -2,59 +2,34 @@ import { createStore } from 'vuex'
 import { ListState } from '@/components/List/ListState';
 import { FormState } from '@/components/Form/FormState';
 import { getById, findIndex } from "@/lib";
+import { deepClone } from 'vue-helper';
 
 export class CrudPageState
 {
 	List: ListState = new ListState();
 	FormEdit: FormState = new FormState();
 	
+	
 	/**
-	 * Select
+	 * Select active item
 	 */
-	static select (state: CrudPageState)
+	selectActiveItem()
 	{
-		let item = getById(state.List.items, state.List.active_id);
-		state.FormEdit.item = Object.assign({}, item);
-	};
-
-
+		let item = getById(this.List.items, this.List.active_id);
+		this.FormEdit.item = deepClone(item);
+	}
+	
+	
 	/**
-	 * Save
+	 * Save form
 	 */
-	static save (state: CrudPageState)
+	saveForm()
 	{
-		let index = findIndex(state.List.items, state.List.active_id);
+		let index = findIndex(this.List.items, this.List.active_id);
 		if (index != -1)
 		{
-			state.List.items[index] = state.FormEdit.item;
+			this.List.items[index] = deepClone(this.FormEdit.item);
 		}
 	};
-
-
-	/**
-	 * Returns methods list
-	 */
-	static mutations(): Array<string>
-	{
-		let res: Array<string> =
-		[
-			"select",
-			"save",
-		];
-		return res;
-	}
-
-
-	/**
-	 * Returns modules
-	 */
-	static modules(): Record<string, any>
-	{
-		let res: Record<string, any> =
-		{
-			"List": ListState,
-			"FormEdit": FormState,
-		};
-		return res;
-	}
+	
 }

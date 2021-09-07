@@ -18,6 +18,7 @@
 	</div>
 </template>
 
+
 <script lang="js">
 
 import { defineComponent } from 'vue';
@@ -34,13 +35,11 @@ export default defineComponent({
 	{
 		onSelect: function ()
 		{
-			this.$commit("select");
+			this.model.selectActiveItem();
 		},
-		
 		onSave: function ()
 		{
-			this.$commit("save");
-			this.$forceUpdate();
+			this.model.saveForm();
 		},
 	},
 	components:
@@ -49,6 +48,5 @@ export default defineComponent({
 		List: List,
 	},
 });
-
 
 </script>

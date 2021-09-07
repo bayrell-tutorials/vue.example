@@ -40,8 +40,8 @@ export default defineComponent({
 	{
 		onSelect: function (id)
 		{
-			this.$commit("select", id);
-			this.$emit("select", id);
+			this.model.select(id);
+			this.$emit("select");
 		},
 	}
 });

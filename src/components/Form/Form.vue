@@ -54,8 +54,7 @@ export default defineComponent({
 	{
 		onChange: function (name, e)
 		{
-			this.$commit("change", {"field": "name", "value": e.target.value});
-			this.$emit("change", {"field": "name", "value": e.target.value});
+			this.model.changeItem(name, e.target.value);
 		},
 		onSave: function ()
 		{
