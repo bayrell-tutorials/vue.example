@@ -3,9 +3,7 @@
 
 
 <template>
-	<div class="page_home">
-		Wellcome {{ model.name }}!
-	</div>
+    Page not found
 </template>
 
 
@@ -24,7 +22,7 @@ export default defineComponent({
 	},
 	mounted()
 	{
-		(this as any).setPageTitle("Home Page");
+		(this as any).setPageTitle("Page not found");
 	}
 });
 

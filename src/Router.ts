@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomePage from './pages/Home/HomePage.vue'
 import CrudPage from './pages/Crud/CrudPage.vue'
+import NotFoundPage from '@/pages/NotFound/NotFoundPage.vue'
 
 const routes: Array<RouteRecordRaw> = [
 	{
@@ -15,6 +16,12 @@ const routes: Array<RouteRecordRaw> = [
 		component: CrudPage,
 		props: { store_path: ["CrudPage"] }
 	},
+	{
+		path: "/:pathMatch(.*)*",
+		name: 'NotFoundPage',
+		component: NotFoundPage,
+		props: { store_path: ["NotFoundPage"] },
+	}
 ]
 
 const router = createRouter({

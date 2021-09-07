@@ -47,6 +47,10 @@ export default defineComponent({
 		Form: Form,
 		List: List,
 	},
+	mounted()
+	{
+		this.setPageTitle("CRUD");
+	}
 });
 
 </script>
