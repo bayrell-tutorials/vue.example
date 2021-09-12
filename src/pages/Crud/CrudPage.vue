@@ -26,7 +26,8 @@ import { mixin } from "vue-helper";
 import Form from '@/components/Form/Form.vue'
 import List from '@/components/List/List.vue'
 
-export default defineComponent({
+export const CrudPage =
+{
 	mixins: [ mixin ],
 	computed:
 	{
@@ -51,6 +52,8 @@ export default defineComponent({
 	{
 		this.setPageTitle("CRUD");
 	}
-});
+};
+
+export default defineComponent(CrudPage);
 
 </script>

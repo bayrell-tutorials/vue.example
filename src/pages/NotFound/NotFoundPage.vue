@@ -12,7 +12,8 @@
 import { defineComponent } from 'vue';
 import { mixin } from "vue-helper";
 
-export default defineComponent({
+export const NotFoundPage = 
+{
 	mixins: [ mixin ],
 	computed:
 	{
@@ -24,6 +25,8 @@ export default defineComponent({
 	{
 		(this as any).setPageTitle("Page not found");
 	}
-});
+};
+
+export default defineComponent(NotFoundPage);
 
 </script>

@@ -31,7 +31,9 @@
 import { defineComponent } from 'vue';
 import { mixin } from "vue-helper";
 
-export default defineComponent({
+
+export const List =
+{
 	mixins: [ mixin ],
 	computed:
 	{
@@ -44,6 +46,8 @@ export default defineComponent({
 			this.$emit("select");
 		},
 	}
-});
+};
+
+export default defineComponent(List);
 
 </script>

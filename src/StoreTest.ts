@@ -7,7 +7,8 @@ import { AppState } from "./AppState";
 export function initTestStore (store: Store<AppState>)
 {
 	/* Home Page */
-	store.state.HomePage.name = "Test12345";
+	store.state.HomePage.name = "Test1";
+	store.state.Home2Page.name = "Test2";
 
 	/* Main Page */
 	store.state.CrudPage.List.items.push({ "id": 1, "name": "Test 1" });

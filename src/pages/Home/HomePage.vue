@@ -1,20 +1,27 @@
 <style lang="scss" scoped>
+.page_home{
+	padding: 20px;
+}
 </style>
 
 
 <template>
+	<slot name="top"></slot>
 	<div class="page_home">
 		Wellcome {{ model.name }}!
 	</div>
+	<slot name="bottom"></slot>
 </template>
 
 
-<script lang="ts">
+<script lang="js">
 
 import { defineComponent } from 'vue';
 import { mixin } from "vue-helper";
 
-export default defineComponent({
+
+export const HomePage =
+{
 	mixins: [ mixin ],
 	computed:
 	{
@@ -24,8 +31,10 @@ export default defineComponent({
 	},
 	mounted()
 	{
-		(this as any).setPageTitle("Home Page");
+		this.setPageTitle("Home Page");
 	}
-});
+};
+
+export default defineComponent(HomePage);
 
 </script>

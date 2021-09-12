@@ -45,7 +45,9 @@
 import { defineComponent } from 'vue';
 import { mixin } from "vue-helper";
 
-export default defineComponent({
+
+export const Form =
+{
 	mixins: [ mixin ],
 	computed:
 	{
@@ -61,6 +63,8 @@ export default defineComponent({
 			this.$emit("save");
 		},
 	}
-});
+};
+
+export default defineComponent(Form);
 
 </script>
